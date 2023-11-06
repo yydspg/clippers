@@ -9,6 +9,11 @@
         <option value="$PROJECT_DIR$/cp-content/cp-content-api/pom.xml" />
         <option value="$PROJECT_DIR$/cp-base/pom.xml" />
         <option value="$PROJECT_DIR$/cp-generator/pom.xml" />
+        <option value="$PROJECT_DIR$/xuecheng-plus-system/pom.xml" />
+        <option value="$PROJECT_DIR$/cp-system/pom.xml" />
+        <option value="$PROJECT_DIR$/cp-system/cp-system-service/pom.xml" />
+        <option value="$PROJECT_DIR$/cp-system/cp-system-model/pom.xml" />
+        <option value="$PROJECT_DIR$/cp-system/cp-system-api/pom.xml" />
       </list>
     </option>
   </component>
