@@ -1,13 +1,11 @@
-package com.cp.content.service.impl;
+package com.cp.content.service.service.impl;
 
-import com.cp.content.model.po.CourseMarket;
-import com.cp.content.mapper.CourseMarketMapper;
-import com.cp.content.service.CourseMarketService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.cp.content.service.mapper.CourseMarketMapper;
+import com.cp.content.model.po.CourseMarket;
+import com.cp.content.service.service.CourseMarketService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * <p>

@@ -2,11 +2,17 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
         <artifactId>cp</artifactId>
-        <groupId>com.pg</groupId>
+        <groupId>com.cp</groupId>
         <version>1.0-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>cp-content</artifactId>
-    <name>Archetype - cp-content</name>
-    <url>http://maven.apache.org</url>
+    <name>cp-content</name>
+    <packaging>pom</packaging>
+    <modules>
+    <module>cp-content-api</module>
+    <module>cp-content-model</module>
+    <module>cp-content-service</module>
+    </modules>
 </project>

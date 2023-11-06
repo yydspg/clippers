@@ -1,13 +1,11 @@
-package com.cp.content.service.impl;
+package com.cp.content.service.service.impl;
 
-import com.cp.content.model.po.Teachplan;
-import com.cp.content.mapper.TeachplanMapper;
-import com.cp.content.service.TeachplanService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.cp.content.service.mapper.TeachplanMapper;
+import com.cp.content.model.po.Teachplan;
+import com.cp.content.service.service.TeachplanService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * <p>

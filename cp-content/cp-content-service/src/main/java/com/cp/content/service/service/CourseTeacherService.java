@@ -1,7 +1,7 @@
-package com.cp.content.service;
+package com.cp.content.service.service;
 
-import com.cp.content.model.po.CourseTeacher;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.cp.content.model.po.CourseTeacher;
 
 /**
  * <p>

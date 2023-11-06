@@ -1,13 +1,11 @@
-package com.cp.content.service.impl;
+package com.cp.content.service.service.impl;
 
-import com.cp.content.model.po.CourseCategory;
-import com.cp.content.mapper.CourseCategoryMapper;
-import com.cp.content.service.CourseCategoryService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.cp.content.service.mapper.CourseCategoryMapper;
+import com.cp.content.model.po.CourseCategory;
+import com.cp.content.service.service.CourseCategoryService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * <p>

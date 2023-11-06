@@ -1,0 +1,28 @@
+server:
+  servlet:
+    context-path: /content
+  port: 63040
+#微服务配置
+spring:
+  application:
+    name: content-api
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/xc166_content?useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai&tinyInt1isBit=false
+    username: root
+    password: 1234
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+    tags-sorter: alpha
+    #operations-sorter: order
+    enabled: true
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
+  group-configs:
+    - group: 'cp-content'
+      paths-to-match: '/**'
+  default-flat-param-object: true
+  packages-to-scan: com.cp.content.api
+

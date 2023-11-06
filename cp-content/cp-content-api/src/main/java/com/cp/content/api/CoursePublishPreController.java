@@ -1,12 +1,11 @@
-package com.cp.content.controller;
+package com.cp.content.api;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import com.cp.content.service.CoursePublishPreService;
-import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
+import com.cp.content.service.service.CoursePublishPreService;
+import jakarta.annotation.Resource;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -20,6 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 @RequestMapping("coursePublishPre")
 public class CoursePublishPreController {
 
-    @Autowired
+    @Resource
     private CoursePublishPreService  coursePublishPreService;
 }

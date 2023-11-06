@@ -1,8 +1,9 @@
 package com.cp.content.model.po;
 
-import java.io.Serializable;
-import lombok.Data;
 import com.baomidou.mybatisplus.annotation.TableName;
+import lombok.Data;
+
+import java.io.Serializable;
 
 /**
  * <p>

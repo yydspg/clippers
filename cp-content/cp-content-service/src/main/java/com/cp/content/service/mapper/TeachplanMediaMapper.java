@@ -1,8 +1,7 @@
-package com.cp.content.mapper;
+package com.cp.content.service.mapper;
 
-import com.cp.content.model.po.TeachplanMedia;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import org.springframework.stereotype.Repository;
+import com.cp.content.model.po.TeachplanMedia;
 
 /**
  * <p>

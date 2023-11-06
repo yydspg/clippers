@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/cp-base/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cp-base/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cp-content/cp-content-api/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cp-content/cp-content-api/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cp-content/cp-content-model/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cp-content/cp-content-model/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cp-content/cp-content-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cp-content/cp-content-service/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cp-content/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cp-content/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cp-generator/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/cp-generator/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
+  </component>
+</project>
