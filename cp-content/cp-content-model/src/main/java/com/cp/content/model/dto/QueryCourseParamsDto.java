@@ -3,7 +3,7 @@ package com.cp.content.model.dto;
 import lombok.Data;
 
 @Data
-public class QueryCourseParamDto {
+public class QueryCourseParamsDto {
     //审核状态
     private String auditStatus;
     //课程名称

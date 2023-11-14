@@ -1,6 +1,7 @@
 package com.cp.content.model.po;
 
 import com.baomidou.mybatisplus.annotation.*;
+import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -14,6 +15,7 @@ import java.time.LocalDateTime;
  * @author paul
  */
 @Data
+@Builder
 @TableName("course_base")
 public class CourseBase implements Serializable {
 

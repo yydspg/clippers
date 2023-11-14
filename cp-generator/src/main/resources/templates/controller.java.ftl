@@ -17,7 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * <p>
- * ${table.comment!} 前端控制器
+ * ${table.comment!}
  * </p>
  *
  * @author ${author}
@@ -34,7 +34,7 @@ class ${table.controllerName}<#if superControllerClass??> : ${superControllerCla
 <#if superControllerClass??>
 public class ${table.controllerName} extends ${superControllerClass} {
 <#else>
-@RequestMapping("${entity?uncap_first}")
+@RequestMapping("/${entity?uncap_first}")
 public class ${table.controllerName} {
 </#if>
 

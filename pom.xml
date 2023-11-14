@@ -184,6 +184,13 @@
     </dependencies>
 
   </dependencyManagement>
+  <dependencies>
+    <dependency>
+      <groupId>org.jetbrains</groupId>
+      <artifactId>annotations</artifactId>
+      <version>13.0</version>
+    </dependency>
+  </dependencies>
   <build>
     <finalName>${project.name}</finalName>
     <!--编译打包过虑配置-->

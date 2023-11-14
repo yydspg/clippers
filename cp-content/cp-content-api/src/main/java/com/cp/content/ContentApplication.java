@@ -26,10 +26,12 @@ public class ContentApplication {
             log.info("\n----------------------------------------------------------\n\t" +
                             "Application '{}' is running! \n\tAccess URLs:\n\t" +
                             "Local: \t\thttp://localhost:{}/content\n\t" +
+                            "swagger:\thttp://localhost:{}/content/doc.html\n\t"+
                             "External: \thttp://{}:{}/content\n\t"+
                             "Doc: \thttp://{}:{}/content/doc.html\n"+
                             "----------------------------------------------------------",
                     env.getProperty("spring.application.name"),
+                    env.getProperty("server.port"),
                     env.getProperty("server.port"),
                     InetAddress.getLocalHost().getHostAddress(),
                     env.getProperty("server.port"),
