@@ -6,7 +6,6 @@ import com.cp.base.constant.course.CourseAuditStatusConstant;
 import com.cp.base.constant.course.CourseChargeStatusConstant;
 import com.cp.base.constant.course.CourseExceptionConstant;
 import com.cp.base.constant.course.CourseReleaseStatusConstant;
-import com.cp.base.exception.CpException;
 import com.cp.base.model.PageParams;
 import com.cp.base.model.PageResult;
 import com.cp.content.model.dto.AddCourseDto;
@@ -15,11 +14,13 @@ import com.cp.content.model.dto.EditCourseDto;
 import com.cp.content.model.dto.QueryCourseParamsDto;
 import com.cp.content.model.po.CourseBase;
 import com.cp.content.model.po.CourseMarket;
+import com.cp.content.service.exception.CpException;
 import com.cp.content.service.mapper.CourseBaseMapper;
 import com.cp.content.service.mapper.CourseCategoryMapper;
 import com.cp.content.service.mapper.CourseMarketMapper;
 import com.cp.content.service.service.CourseBaseInfoService;
 import jakarta.annotation.Resource;
+import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
@@ -27,6 +28,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
+@Slf4j
 @Service
 public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
     @Resource
@@ -37,6 +39,7 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
     private CourseCategoryMapper courseCategoryMapper;
     @Override
     public PageResult<CourseBase>  queryCourseBaseList(PageParams pageParams, QueryCourseParamsDto queryCourseParamsDto) {
+        log.info("start query CourseBaseList,startPage:{},pageSize:{}",pageParams.getPageNo(),pageParams.getPageSize());
         //query condition
         LambdaQueryWrapper<CourseBase> queryWrapper = new LambdaQueryWrapper<>();
         //fuzzy query by name : course_base.name like = `%value%`
@@ -47,7 +50,7 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
         queryWrapper.like(StringUtils.isNotEmpty(queryCourseParamsDto.getPublishStatus()),CourseBase::getStatus, queryCourseParamsDto.getPublishStatus());
 
         //create page object ,Params:current pageNo,number of records per page
-        Page<CourseBase> page = new Page<>(pageParams.getPageNo(), pageParams.getPageNo());
+        Page<CourseBase> page = new Page<>(pageParams.getPageNo(), pageParams.getPageSize());
         //start paging query
         Page<CourseBase> pageResult = courseBaseMapper.selectPage(page,queryWrapper);
         //data list
@@ -55,9 +58,7 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
         //total records
         long total = pageResult.getTotal();
         //enveloped data :List<T> items,Long total,Long pageNo
-        PageResult<CourseBase> courseBasePageResult = new PageResult<>(items,total,pageParams.getPageNo(),pageParams.getPageSize());
-
-        return courseBasePageResult;
+        return new PageResult<>(items,total,pageParams.getPageNo(),pageParams.getPageSize());
     }
 
     /**
@@ -69,14 +70,13 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
     @Transactional
     @Override
     public CourseBaseInfoDto createCourseBase(Long companyId, AddCourseDto addCourseDto) {
-        CourseBase courseBaseNew = CourseBase.builder()
-                .companyId(companyId)
-                .createDate(LocalDateTime.now())
-                //Audit Status
-                .auditStatus(CourseAuditStatusConstant.NOT_SUBMITTED)
-                //publish Status
-                .status(CourseReleaseStatusConstant.UNPUBLISHED)
-                .build();
+
+        CourseBase courseBaseNew = new CourseBase();
+         courseBaseNew.setCreateDate(LocalDateTime.now());
+         //Audit Status
+         courseBaseNew.setAuditStatus(CourseAuditStatusConstant.NOT_SUBMITTED);
+         //publish Status
+         courseBaseNew.setStatus(CourseReleaseStatusConstant.UNPUBLISHED);
         BeanUtils.copyProperties(addCourseDto,courseBaseNew);
         //save new courseBase
         int insertStatus = courseBaseMapper.insert(courseBaseNew);
@@ -98,6 +98,7 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
      */
     @Override
     public  CourseBaseInfoDto getCourseBaseInfo(Long courseId) {
+        log.info("get courseBase info,courseId:{}",courseId);
         CourseBase courseBase = courseBaseMapper.selectById(courseId);
         if (courseBase == null) {
             return null;
@@ -114,18 +115,21 @@ public class CourseBaseInfoServiceImpl implements CourseBaseInfoService {
     @Override
     public CourseBaseInfoDto updateCourseBase(Long companyId, EditCourseDto editCourseDto) {
         Long courseId = editCourseDto.getId();
+        log.info("update courseBase with Market info:companyId:{},courseId:{}",companyId,courseId);
         //查询课程信息
-        CourseBase courseBase = courseBaseMapper.selectById(courseId);
-        if (courseBase == null) {
-            CpException.cast(CourseExceptionConstant.COURSE_NOT_EXISTS);
-        }
-        return  null;
+        CourseBase courseBase = new CourseBase();
+        BeanUtils.copyProperties(editCourseDto,courseBase);
+        courseBaseMapper.updateById(courseBase);
+        CourseMarket courseMarket = new CourseMarket();
+        BeanUtils.copyProperties(editCourseDto,courseMarket);
+        courseMarketMapper.updateById(courseMarket);
+        return  getCourseBaseInfo(courseId);
     }
 
     /**
      * 储存营销信息
-     * @param courseMarket
-     * @return
+     * @param courseMarket 营销信息
+     * @return 判断数
      */
     private int saveCourseMarket(CourseMarket courseMarket){
         //参数校验

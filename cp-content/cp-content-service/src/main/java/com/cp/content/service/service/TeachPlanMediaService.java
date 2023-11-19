@@ -1,7 +1,7 @@
 package com.cp.content.service.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.cp.content.model.po.TeachplanMedia;
+import com.cp.content.model.po.TeachPlanMedia;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.cp.content.model.po.TeachplanMedia;
  * @author paul
  * @since 2023-11-02
  */
-public interface TeachplanMediaService extends IService<TeachplanMedia> {
+public interface TeachPlanMediaService extends IService<TeachPlanMedia> {
 
 }

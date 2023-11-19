@@ -1,4 +1,4 @@
-package com.cp.base.exception;
+package com.cp.content.service.exception;
 
 import com.cp.base.enumeration.CommonError;
 

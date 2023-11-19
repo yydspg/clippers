@@ -17,9 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @Slf4j
 @RestController
-@RequestMapping("courseBase")
+@RequestMapping("/courseBase")
 public class CourseBaseController {
 
     @Resource
     private CourseBaseService courseBaseService;
+
 }

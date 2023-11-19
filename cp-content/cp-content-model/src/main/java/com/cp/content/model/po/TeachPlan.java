@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @TableName("teachplan")
-public class Teachplan implements Serializable {
+public class TeachPlan implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
@@ -65,7 +65,7 @@ public class Teachplan implements Serializable {
     /**
      * 排序字段
      */
-    private Integer orderby;
+    private Long orderby;
 
     /**
      * 课程标识

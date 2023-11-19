@@ -15,7 +15,6 @@ import java.time.LocalDateTime;
  * @author paul
  */
 @Data
-@Builder
 @TableName("course_base")
 public class CourseBase implements Serializable {
 

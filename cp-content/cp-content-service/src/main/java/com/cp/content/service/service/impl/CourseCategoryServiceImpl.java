@@ -30,8 +30,9 @@ public class CourseCategoryServiceImpl extends ServiceImpl<CourseCategoryMapper,
     private CourseCategoryMapper courseCategoryMapper;
 
     @Override
-    //TODO理解如下代码
+    //TODO 理解如下代码
     public List<CourseCategoryTreeDto> queryTreeNodes(String id) {
+        log.info("tree query,id:{}",id);
         List<CourseCategoryTreeDto> courseCategoryTreeDtos = courseCategoryMapper.selectTreeNodes(id);
         Map<String,CourseCategoryTreeDto> mapTemp = courseCategoryTreeDtos.stream().filter(t->!id.equals(t.getId())).collect(Collectors.toMap(k->k.getId(),v->v,(k1,k2)->k2));
         List<CourseCategoryTreeDto> courseCategoryList = new ArrayList<>();

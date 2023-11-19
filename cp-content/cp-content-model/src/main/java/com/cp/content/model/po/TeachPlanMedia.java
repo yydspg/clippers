@@ -15,7 +15,7 @@ import java.time.LocalDateTime;
  */
 @Data
 @TableName("teachplan_media")
-public class TeachplanMedia implements Serializable {
+public class TeachPlanMedia implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

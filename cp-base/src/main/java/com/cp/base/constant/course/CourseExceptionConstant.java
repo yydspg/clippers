@@ -8,4 +8,5 @@ public class CourseExceptionConstant {
     public static final String COURSE_PRICE_INVALID = "课程价格不能为空并且必需大于0";
     public static final String COURSE_PRICE_EMPTY = "收费规则为空";
     public static final String COURSE_NOT_EXISTS = "课程不存在";
+    public static final String TEACHER_NOT_EXISTS = "教师不存在";
 }

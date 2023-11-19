@@ -1,7 +1,7 @@
-package com.cp.base.handler;
+package com.cp.content.service.handler;
 
-import com.cp.base.enumeration.CommonError;
 import com.cp.base.exception.RestErrorResponse;
+import com.cp.content.service.exception.CpException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -12,19 +12,18 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-
-
     /**
-     * handle system error
-     * @param e system exception
-     * @return restErrorResponse
+     * handle custom exception
+     * @param e custom exception
+     * @return The front-end convention returns an exception message
      */
     @ResponseBody
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler(CpException.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    public RestErrorResponse exception(Exception e){
-        //record error
-        log.info("!!!system error : {},{}",e.getMessage(),e);
-        return new RestErrorResponse(CommonError.UNKNOWN_ERROR.getErrorMessage());
+    public RestErrorResponse customException(CpException e){
+        //record exception
+        log.info("!!!system exception :{},{}",e.getErrMessage(),e);
+        String errMessage = e.getErrMessage();
+        return new RestErrorResponse(errMessage);
     }
 }

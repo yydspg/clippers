@@ -1,15 +1,15 @@
 package com.cp.content.service.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.cp.content.model.po.Teachplan;
+import com.cp.content.model.po.TeachPlanMedia;
 
 /**
  * <p>
- * 课程计划 Mapper 接口
+ *  Mapper 接口
  * </p>
  *
  * @author paul
  */
-public interface TeachplanMapper extends BaseMapper<Teachplan> {
+public interface TeachPlanMediaMapper extends BaseMapper<TeachPlanMedia> {
 
 }
